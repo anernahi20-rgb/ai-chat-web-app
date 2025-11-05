@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat - Client-Side Transformers.js</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-robot"></i> AI Chat Assistant</h1>
+            <p class="subtitle">Powered by Transformers.js - No API Keys Required</p>
+            <div class="model-info">
+                <span id="model-status" class="status loading"><i class="fas fa-spinner fa-spin"></i> Loading model...</span>
+            </div>
+        </header>
+
+        <div class="chat-container">
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>Hi! I'm your AI assistant running entirely in your browser. No data is sent to any servers. How can I help you today?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <div class="input-container">
+                    <textarea 
+                        id="user-input" 
+                        placeholder="Type your message here..."
+                        rows="1"
+                    ></textarea>
+                    <button id="send-button" class="send-button" disabled>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="model-selector">
+                    <label for="model-select">Model:</label>
+                    <select id="model-select">
+                        <option value="Xenova/distilgpt2">DistilGPT-2 (82MB - Fast)</option>
+                        <option value="Xenova/gpt2">GPT-2 (548MB - Better Quality)</option>
+                        <option value="HuggingFaceTB/SmolLM-135M-Instruct">SmolLM-135M (268MB - Instruction-tuned)</option>
+                        <option value="microsoft/DialoGPT-small">DialoGPT-Small (117MB - Chat Optimized)</option>
+                    </select>
+                    <button id="load-model-button" class="load-model-button">
+                        <i class="fas fa-download"></i> Load Model
+                    </button>
+                </div>
+                <div class="features">
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>100% Private</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-wifi-slash"></i>
+                        <span>Works Offline</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-key"></i>
+                        <span>No API Keys</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Built with <a href="https://huggingface.co/docs/transformers.js" target="_blank">Transformers.js</a> • 
+        <a href="https://github.com/anernahi20-rgb/ai-chat-web-app" target="_blank">
+            <i class="fab fa-github"></i> Source Code
+        </a></p>
+    </footer>
+
+    <!-- Loading overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3>Loading AI Model...</h3>
+            <p id="loading-text">Initializing Transformers.js...</p>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <p class="loading-note">This may take a moment on first load as the model is downloaded and cached in your browser.</p>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
